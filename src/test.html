@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Length Converter</title>
+    <style>
+        .container {
+            width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid black;
+            border-radius: 1%;
+            background-color: white; 
+        }
+        
+        .display {
+            width: 98%;
+            height: 40px;
+            font-size: 30px;
+            text-align: right;
+            margin-bottom: 15px;
+            padding-right: 5px;
+        }
+        
+        table {
+            width: 100%;
+            padding: 5px;
+        }
+        
+        table td {
+            width: 20%;
+            margin: 3px;
+            text-align: center;
+        }
+        
+        .button {
+            width: 100%;
+            height: 40px;
+            font-size: 70px;
+            color: #222;
+        }
+		
+	.buttonSetup {
+            width: 100px;
+            height: 70px;
+            font-size: 20px;
+            color: #222;
+        }
+		
+    </style>
+    <script type="text/javascript" src="js/test.js">
+	/* 	
+		Include Javascript file
+		
+	*/
+	</script>
+	
+
+		
+	</head>
+	<!-- BUTTON AND TEXT SECTION -->
+	<body onload="init ()">
+		<center>
+			<font size="7" face="verdana" color="black"><b>Length Converter</b></font> 
+		</center>
+		
+		<div class="container">
+			<table cellspacing="0">
+				<tr>
+					<td><b>Centimetres to Feet ( cm to ft ): <input type="text" id="1"></b><br></td>	
+				</tr>
+				<tr>
+					<td><b>Feet to Centimetres ( ft to cm ): <input type="text" id="2"></b><br></td>	
+				</tr>
+			</table>
+		</div>
+		
+		<!-- THIS SECTION IS FOR ALL THE TEXT DISPLAYED ON THE SCREEN -->
+		<center>
+			<br>
+			<td><input id="resetBtn" class="buttonSetup" type="button" value="Reset" onclick="reset ()"/></td><br>
+			<td><input id="calculateBtn" class="buttonSetup" type="button" value="Calculate" onclick="calculate ()"/></td><br><br>
+			<font size="5" face="verdana" color="red"><b><span id="showResult1"></span> </b></font><br>
+			<font size="5" face="verdana" color="red"><b><span id="showResult2"></span> </b></font><br>
+		</center>
+	</body>
+</html>
