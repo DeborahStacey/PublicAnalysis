@@ -1,10 +1,14 @@
 ****************************************************
-Alex Green					Public/Population Analysis Engine
-Erik Zorn-Wallentin			CIS*4250 - Software Design V
+Public/Population Analysis Engine
+CIS*4250 - Software Design V
+
+Contributors:
+Alex Green
+Erik Zorn-Wallentin
 Kashaan Ali
 Vincent Yong
 
-Friday, Oct.13 / 2016
+Friday, Oct.14 / 2016
 ****************************************************
 
 
@@ -59,21 +63,24 @@ Public Analysis Structure
 Structure:
 Root
 	lib
-		jasmine-2.4.1								- Jasmine library, do not need to do anything with this
-			jasmine contents
-	testCases										- Test cases will all be contained here, and they test the source js code
-		analysisEngineSpec.js						- Analysis Engine subsystem test cases
-		backendInteractionSpec.js					- Backend Interaction subsystem test cases
-		userInteractionSpec.js						- User Interaction subsystem test cases
-	src												- Source files that contain the interface, source files for javascript and json files
-		interface.html								- Interface in HTML to simulate from the interface team
-		js											- Javascript source files
-			analysisEngine.js						- Analysis Engine subsystem source file
-			backendInteraction.js					- Backend Interaction subsystem source file
-			userInteraction.js						- User Interaction subsystem source file
-		json										- JSON source files
-			inputFile.json							- JSON file that contains info from interface to be used by several subsystems and other teams
-	SpecRunner.html									- SpecRunner is what runs the test cases, and will be opened in any browser
+		jasmine-2.4.1			- Jasmine library, do not need to do anything with this jasmine contents
+
+	testCases				- Test cases will all be contained here, and they test the source js code
+		analysisEngineSpec.js		- Analysis Engine subsystem test cases
+		backendInteractionSpec.js	- Backend Interaction subsystem test cases
+		userInteractionSpec.js		- User Interaction subsystem test cases
+
+	src					- Source files that contain the interface, source files for javascript and json files
+		interface.html			- Interface in HTML to simulate from the interface team
+		js				- Javascript source files
+			analysisEngine.js	- Analysis Engine subsystem source file
+			backendInteraction.js	- Backend Interaction subsystem source file
+			userInteraction.js	- User Interaction subsystem source file
+
+		json				- JSON source files
+			inputFile.json		- JSON file that contains info from interface to be used by several subsystems and other teams
+
+	SpecRunner.html				- SpecRunner is what runs the test cases, and will be opened in any browser
 	README.txt										
 
 **********************
