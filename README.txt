@@ -63,14 +63,19 @@ Public Analysis Structure
 Structure:
 Root
 	lib
-		jasmine-2.4.1			- Jasmine library, do not need to do anything with this jasmine contents
+		jasmine-2.4.1			- Jasmine library, do not need to do anything with this
+						jasmine contents
 
-	testCases				- Test cases will all be contained here, and they test the source js code
+	testCases				- Test cases will all be contained here, and they test the
+						source js code
+
 		analysisEngineSpec.js		- Analysis Engine subsystem test cases
 		backendInteractionSpec.js	- Backend Interaction subsystem test cases
 		userInteractionSpec.js		- User Interaction subsystem test cases
 
-	src					- Source files that contain the interface, source files for javascript and json files
+	src					- Source files that contain the interface, source files for
+						javascript and json files
+
 		interface.html			- Interface in HTML to simulate from the interface team
 		js				- Javascript source files
 			analysisEngine.js	- Analysis Engine subsystem source file
@@ -78,9 +83,11 @@ Root
 			userInteraction.js	- User Interaction subsystem source file
 
 		json				- JSON source files
-			inputFile.json		- JSON file that contains info from interface to be used by several subsystems and other teams
+			inputFile.json		- JSON file that contains info from interface to be used by
+						several subsystems and other teams
 
-	SpecRunner.html				- SpecRunner is what runs the test cases, and will be opened in any browser
+	SpecRunner.html				- SpecRunner is what runs the test cases, and will be
+						opened in any browser
 	README.txt										
 
 **********************
