@@ -13,75 +13,28 @@
 		Return: NONE
 	-------*/
 	function reset () {
-		document.getElementById('showResult1').innerHTML = "";
+		document.getElementById('question').value = "question0";
+		document.getElementById('region').value = "region0";
+		document.getElementById('catBreed').value = "catBreed0";
+		document.getElementById('age').value = "age0";
+		document.getElementById('weight').value = "weight0";
+		document.getElementById('gender').value = "gender0";
+		document.getElementById('height').value = "height0";
 		document.getElementById('showResult2').innerHTML = "";
 		document.getElementById('1').value = "1";
 		document.getElementById('2').value = "1";
 	}
+	
+	function generate(){
+		alert("Generate...");
+		var txtFile = "test.txt";
+   		var file = new File(txtFile,"write");
+   		var str = JSON.stringify({ "question": document.getElementById('question').value, "region": document.getElementById('region').value });
 
-	/*-------
-		Purpose: Extension to JavaScript evaluate function, but this allows me to set values in my input boxes before calculations
-		Parameters: value ( value to be evaluated ), slot (input box will be set to the evaluated number )
-		Return: NONE
-	-------*/
-	function evaluate(value, slot){
-		var result = 0;
-		result = eval(value);
-		document.getElementById(slot).value = result;
-
-	}
-
-	/*-------
-		Purpose: Calculates conversion from Centimetres to Feet, and Feet to Centimetres.
-		Parameters: NONE
-		Return: NONE
-	-------*/
-	function calculate(){
-		var centimetresInput = document.getElementById('1').value;
-		var feetInput = document.getElementById('2').value;
-		var centimetresConverted = 0;
-		var feetConverted = 0;
-		var letters = /^[A-Za-z]+$/; 
-
-		/* Error checking for certain input boundaries, don't allow characters! Needs to be done before EVAL function is used */
-		if (centimetresInput.match(letters)){
-			document.getElementById('showResult1').innerHTML = "Please use numbers, not characters";
-		}else if (centimetresInput == ""){
-			document.getElementById('1').value = 1;
-			document.getElementById('showResult1').innerHTML = "Input is empty! Put in a number to calculate!";
-		}else{
-			/* Error checking to see if any calculations need to be solved before we do conversion */
-			evaluate(centimetresInput, 1);
-			centimetresInput = document.getElementById('1').value;
-			
-			/* Calculate the conversions */
-			feetConverted = centimetresInput * 0.032808;
-
-			/*  Show conversions to the user */
-			document.getElementById('showResult1').innerHTML = centimetresInput + "cm = " + feetConverted +"ft";
-			
-			
-		}
-
-		/* Error checking for certain input boundaries, don't allow characters! Needs to be done before EVAL function is used */
-		if (feetInput.match(letters)){
-			document.getElementById('showResult2').innerHTML = "Please use numbers, not characters";
-		}else if (feetInput == ""){
-			document.getElementById('2').value = 1;
-			document.getElementById('showResult2').innerHTML = "Input is empty! Put in a number to calculate!";
-		}else{
-			
-			/* Error checking to see if any calculations need to be solved before we do conversion */
-			evaluate(feetInput, 2);
-			feetInput = document.getElementById('2').value;
-
-			/* Calculate the conversions */
-			centimetresConverted = feetInput / 0.032808;
-
-			/*  Show conversions to the user */
-			document.getElementById('showResult2').innerHTML = feetInput + "ft = " + centimetresConverted +"cm";
-
-		}
+   		file.open(); 
+   		file.writeline(str);
+   		file.close();
+   		alert("Done!");
 	}
 	
 	

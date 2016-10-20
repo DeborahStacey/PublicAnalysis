@@ -1,7 +1,8 @@
 {
 	"interface":[{
+		"question": "question1",
 		"region": "region1",
-		"cat breed": "cat breed1",
+		"catBreed": "catBreed1",
 		"age": "age1",
 		"weight": "weight1",
 		"gender": "gender1",

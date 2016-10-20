@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Length Converter</title>
+    <title>Interface</title>
     <style>
         .container {
             width: 700px;
@@ -61,16 +61,105 @@
 	<!-- BUTTON AND TEXT SECTION -->
 	<body onload="init ()">
 		<center>
-			<font size="7" face="verdana" color="black"><b>Length Converter</b></font> 
+			<font size="7" face="verdana" color="black"><b>Interface</b></font> 
 		</center>
 		
 		<div class="container">
 			<table cellspacing="0">
 				<tr>
-					<td><b>Centimetres to Feet ( cm to ft ): <input type="text" id="1"></b><br></td>	
+					<td><b>Region: 
+							<select id="region" name="region">
+							<option value="region0"></option>
+  							<option value="region1">Canada</option>
+  							<option value="region2">United States</option>
+							</select>
+						</b>
+						<br>
+					</td>
 				</tr>
 				<tr>
-					<td><b>Feet to Centimetres ( ft to cm ): <input type="text" id="2"></b><br></td>	
+					<td><b>Cat Breed: 
+							<select id="catBreed" name="catBreed">
+							<option value="catBreed0"></option>
+  							<option value="catBreed1">British Shorthair</option>
+  							<option value="catBreed2">Siamese Cat</option>
+  							<option value="catBreed3">Persian Cat</option>
+  							<option value="catBreed4">Maine Coon</option>
+							</select>
+						</b>
+						<br>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Age (Human Years): 
+							<select id="age" name="age">
+							<option value="age0"></option>
+  							<option value="age1">Less than 1 years</option>
+  							<option value="age2">1-2 years</option>
+  							<option value="age3">3-6 years</option>
+  							<option value="age4">6+ years</option>
+							</select>
+						</b>
+						<br>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Weight (Pounds): 
+							<select id="weight" name="weight">
+							<option value="weight0"></option>
+  							<option value="weight1">Less than 2 lb</option>
+  							<option value="weight2">3-4 lb</option>
+  							<option value="weight3">5-10 lb</option>
+  							<option value="weight4">10+ lb</option>
+							</select>
+						</b>
+						<br>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Gender: 
+							<select id="gender" name="gender">
+							<option value="gender0"></option>
+  							<option value="gender1">Male</option>
+  							<option value="gender2">Female</option>
+  							<option value="gender3">Other</option>
+							</select>
+						</b>
+						<br>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Height (cm): 
+							<select id="height" name="height">
+							<option value="height0"></option>
+  							<option value="height1">1-10 cm</option>
+  							<option value="height2">11-20 cm</option>
+  							<option value="height3">21-30 cm</option>
+  							<option value="height4">30+ cm</option>
+							</select>
+						</b>
+						<br>
+					</td>
+				</tr>
+				<tr>
+				<center>
+				<br>
+				<br>
+				<form action="action_page.php">
+  					<input list="question">
+  					<datalist id="question">
+  						<option value="">
+    					<option value="Is my cat obese?">
+    					<option value="Favourite cat food brand?">
+    					<option value="Favourite cat toy?">
+    					<option value="How many cats are rescue cats?">
+    					<option value="How many cats have a mutation?">
+  					</datalist> 
+				</form>
+				<input type="submit" value="Submit">
+				</center>
+				<br>
+				<br>
 				</tr>
 			</table>
 		</div>
@@ -79,7 +168,7 @@
 		<center>
 			<br>
 			<td><input id="resetBtn" class="buttonSetup" type="button" value="Reset" onclick="reset ()"/></td><br>
-			<td><input id="calculateBtn" class="buttonSetup" type="button" value="Calculate" onclick="calculate ()"/></td><br><br>
+			<td><input id="generateBtn" class="buttonSetup" type="button" value="Generate" onclick="generate ()"/></td><br><br>
 			<font size="5" face="verdana" color="red"><b><span id="showResult1"></span> </b></font><br>
 			<font size="5" face="verdana" color="red"><b><span id="showResult2"></span> </b></font><br>
 		</center>
