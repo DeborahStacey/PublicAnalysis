@@ -1,11 +1,5 @@
-{
-	"interface":[{
-		"question": "question1",
-		"region": "region1",
-		"catBreed": "catBreed1",
-		"age": "age1",
-		"weight": "weight1",
-		"gender": "gender1",
-		"height": "height1"
-	}]
-}
+{"employees":[
+    {"firstName":"John", "lastName":"Doe"},
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter", "lastName":"Jones"}
+]}
