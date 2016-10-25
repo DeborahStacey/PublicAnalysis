@@ -1,6 +1,5 @@
-
-var defaultValues = null;
-var requiredFields = null;
+var defaultValuesJSON = null;
+var requiredFieldsJSON = null;
 
 /*-------
 	Purpose: On launch of the script this function is called, calls the reset function to reset everything
@@ -11,8 +10,8 @@ function init (){
 	reset();
 	
 	// Load JSON files
-	//load();
-	getData('json/inputFile.json')
+	load();
+	//getData('json/inputFile.json')
 }
 	
 /*-------
@@ -31,57 +30,71 @@ function reset () {
 	document.getElementById('showResult2').innerHTML = "";
 }
 
-
-
 function submit(){
+	// Get the slot of the question selected
+	var shownVal = document.getElementById("question").value;
 	
-}
+	// Catch any input in the question box that is not empty or a valid question and throw an error
+	var questionSelected;
+	try {
+		questionSelected = document.querySelector("#questions option[value='"+shownVal+"']").dataset.value;
+	}catch (e) {
+		alert("Please enter a question from the drop-down menu.");
+		return;
+	}
+	
+	// Error checking to see if the question field was left blank
+	if (questionSelected == "question0"){
+		alert("Please enter a question from the drop-down menu.");
+		return;
+	}
+	
+	// Strip all characters from the string -- Strip out "question" part and leave the number Ex. question2 --> 2
+	var slot = questionSelected.replace(/\D/g,'');
 
-var XMLHttpRequestObject = false; 
- 
-if (window.XMLHttpRequest) {
-  XMLHttpRequestObject = new XMLHttpRequest();
-} else if (window.ActiveXObject) {
-  XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHTTP");
-}
-
-function getData(dataSource) { 
-	if(XMLHttpRequestObject) {
-		XMLHttpRequestObject.open("GET", dataSource); 
-
-		XMLHttpRequestObject.onreadystatechange = function(){ 
-			if (XMLHttpRequestObject.readyState == 4 && 
-				XMLHttpRequestObject.status == 200) { 
-				// Convert to JSON
-				var obj = JSON.parse(XMLHttpRequestObject.responseText);
-				alert(obj.employees[1].firstName);
-			} 
-		} 
-		XMLHttpRequestObject.send(null); 
+	try {
+		// Set the default values
+		document.getElementById('region').value = defaultValuesJSON.questions[slot].region;
+		document.getElementById('catBreed').value = defaultValuesJSON.questions[slot].catBreed;
+		document.getElementById('age').value = defaultValuesJSON.questions[slot].age;
+		document.getElementById('weight').value = defaultValuesJSON.questions[slot].weight;
+		document.getElementById('gender').value = defaultValuesJSON.questions[slot].gender;
+		document.getElementById('height').value = defaultValuesJSON.questions[slot].height;
+	}catch (e) {
+		alert("Error - That question is not setup in interfaceSettings for defaultValues -- question" + slot);
+		return;
+	}
+	
+	try {
+		// Set the required fields
+		//document.getElementById('region').value = requiredFieldsJSON.questions[slot].region;
+		//document.getElementById('catBreed').value = requiredFieldsJSON.questions[slot].catBreed;
+		//document.getElementById('age').value = requiredFieldsJSON.questions[slot].age;
+		//document.getElementById('weight').value = requiredFieldsJSON.questions[slot].weight;
+		//document.getElementById('gender').value = requiredFieldsJSON.questions[slot].gender;
+		//document.getElementById('height').value = requiredFieldsJSON.questions[slot].height;
+	}catch (e) {
+		alert("Error - That question is not setup in interfaceSettings for requiredFields -- question" + slot);
+		return;
 	}
 }
 
 function load() {
-
-	
 	// Catch any input in the question box that is not empty or a valid question and throw an error
 	try {
+		// Convert defaultValues to JSON object
+		defaultValuesJSON = JSON.parse(defaultValues);
+		//alert(defaultValuesJSON.questions[0].age);
 		
-		
-		//defaultValues = JSON.parse(dValues);
-		//alert(defaultValues[0].region);
-		
-		//requiredFields = JSON.parse(rFields);
-		//alert(defaultValues[0].region);
-		//alert(defaultValues[0].catBreed);
+		// Convert requiredFields to JSON object
+		requiredFieldsJSON = JSON.parse(requiredFields);
+		//alert(requiredFieldsJSON.questions[0].age);
 	}catch (e) {
-		alert("Error - inputFile is either not defined, or missing the correct data structure");
+		alert("Error - interfaceSettings is either not defined, or missing the correct data structure");
 		return;
 	}
 	
 }
-
-
 
 /*-------
 	Purpose: Testing Jasmine Framework
