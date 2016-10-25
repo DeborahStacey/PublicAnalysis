@@ -145,15 +145,16 @@
 				<center>
 				<br>
 				<br>
+				<!-- Reference: http://www.w3schools.com/html/html_form_elements.asp -->
 				<form action="action_page.php">
-  					<input list="question">
-  					<datalist id="question">
-  						<option value="">
-    					<option value="Is my cat obese?">
-    					<option value="Favourite cat food brand?">
-    					<option value="Favourite cat toy?">
-    					<option value="How many cats are rescue cats?">
-    					<option value="How many cats have a mutation?">
+  					<input list="questions" id="question">
+  					<datalist id="questions">
+  						<option data-value="question0" value="">
+  						<option data-value="question1" value="Is my cat obese?">
+  						<option data-value="question2" value="Favourite cat food brand?">
+  						<option data-value="question3" value="Favourite cat toy?">
+  						<option data-value="question4" value="How many cats are rescue cats?">
+  						<option data-value="question5" value="How many cats have a mutation?">
   					</datalist> 
 				</form>
 				<input type="submit" value="Submit">
