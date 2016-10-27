@@ -27,7 +27,15 @@ function reset () {
 	document.getElementById('weight').value = "weight0";
 	document.getElementById('gender').value = "gender0";
 	document.getElementById('height').value = "height0";
+	
 	document.getElementById('showResult2').innerHTML = "";
+	
+	document.getElementById('regionDisplay').innerHTML = "";
+	document.getElementById('catBreedDisplay').innerHTML = "";
+	document.getElementById('ageDisplay').innerHTML = "";
+	document.getElementById('weightDisplay').innerHTML = "";
+	document.getElementById('genderDisplay').innerHTML = "";
+	document.getElementById('heightDisplay').innerHTML = "";
 }
 
 function submit(){
@@ -66,13 +74,38 @@ function submit(){
 	}
 	
 	try {
+		var regionDisplayAsterisk = "";
+		var catBreedDisplayAsterisk = "";
+		var ageDisplayAsterisk = "";
+		var weightDisplayAsterisk = "";
+		var genderDisplayAsterisk = "";
+		var heightDisplayAsterisk = "";
+		
+		if (requiredFieldsJSON.questions[slot].region == "true"){
+			regionDisplayAsterisk = "*";
+		}
+		if (requiredFieldsJSON.questions[slot].catBreed == "true"){
+			catBreedDisplayAsterisk = "*";
+		}
+		if (requiredFieldsJSON.questions[slot].age == "true"){
+			ageDisplayAsterisk = "*";
+		}
+		if (requiredFieldsJSON.questions[slot].weight == "true"){
+			weightDisplayAsterisk = "*";
+		}
+		if (requiredFieldsJSON.questions[slot].gender == "true"){
+			genderDisplayAsterisk = "*";
+		}
+		if (requiredFieldsJSON.questions[slot].height == "true"){
+			heightDisplayAsterisk = "*";
+		}
 		// Set the required fields
-		//document.getElementById('region').value = requiredFieldsJSON.questions[slot].region;
-		//document.getElementById('catBreed').value = requiredFieldsJSON.questions[slot].catBreed;
-		//document.getElementById('age').value = requiredFieldsJSON.questions[slot].age;
-		//document.getElementById('weight').value = requiredFieldsJSON.questions[slot].weight;
-		//document.getElementById('gender').value = requiredFieldsJSON.questions[slot].gender;
-		//document.getElementById('height').value = requiredFieldsJSON.questions[slot].height;
+		document.getElementById('regionDisplay').innerHTML = regionDisplayAsterisk;
+		document.getElementById('catBreedDisplay').innerHTML = catBreedDisplayAsterisk;
+		document.getElementById('ageDisplay').innerHTML = ageDisplayAsterisk;
+		document.getElementById('weightDisplay').innerHTML = weightDisplayAsterisk;
+		document.getElementById('genderDisplay').innerHTML = genderDisplayAsterisk;
+		document.getElementById('heightDisplay').innerHTML = heightDisplayAsterisk;
 	}catch (e) {
 		alert("Error - That question is not setup in interfaceSettings for requiredFields -- question" + slot);
 		return;
