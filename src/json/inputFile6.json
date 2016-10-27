@@ -1,0 +1,10 @@
+{
+	"interface":[{
+		"region": "region6",
+		"cat breed": "cat breed6",
+		"age": "age6",
+		"weight": "weight6",
+		"gender": "gender6",
+		"height": "height6"
+	}]
+}

@@ -132,3 +132,64 @@ function generate(){
 	// Display JSON object on the screen - Demo purposes only
 	document.getElementById('showResult2').innerHTML = jsonObj.interface[0].question + " " + jsonObj.interface[0].region + " " + jsonObj.interface[0].catBreed + " " + jsonObj.interface[0].age + " " + jsonObj.interface[0].weight + " " + jsonObj.interface[0].gender + " " + jsonObj.interface[0].height;
 }
+
+
+/*-------
+	Public Analysis read and save. 
+-------*/
+
+var save_json = function()
+	{
+		var values = { 
+			"region" : $("#region").val(),
+			"cat_breed" : $("#cat_breed").val(),
+			"weight" : $("#weight").val(),
+			"age" : $("#age").val(),
+			"gender": $("#gender").val(),
+			"height": $("#height").val()
+		};
+		
+
+		$.each(json_value, function(index, element) {
+			$.each(element[0], function(index1, element1) {
+				//console.log(element1);
+				var key = index1.replace(" ", "_");
+				element[0][index1.replace("_", "")] = values[key];
+			});
+		});
+
+		var str =  "Will be written<br/><ul>";
+		$.each(json_value, function(index, element) {
+			$('.save_json').empty();
+			$.each(element[0], function(index1, element1) {
+				str += "<li>" + element1 + "</li>";
+			});
+			str+= "</ul>";
+	        $('.save_json').append(str);
+		});
+
+		var content = JSON.stringify(json_value);
+	}
+
+	var read_json = function(filename)
+	{
+		var url = 'json/' + filename ;
+		$.ajax({ 
+	        type: 'GET', 
+	        url: url, 
+	        data: { get_param: 'value' }, 
+	        success: function (data) { 
+	            json_value = data;
+	            $('.read_json').empty();
+	            var str =  "Read Successful<br/><ul>";
+	            $.each(data, function(index, element) {
+	            	$.each(element[0], function(index1, element1) {
+	            		str += "<li>" + element1 + "</li>";
+	            		$('#' + index1.replace(" ", "_")).val(element1);
+	            	});
+	            	str+= "</ul>";
+	            	$('.read_json').append(str);
+		        });
+	        }
+	    });
+	}
