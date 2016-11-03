@@ -156,8 +156,12 @@ function generateQuery(input){
                 break;
         }
 
-        queryString = "SELECT * FROM Cats WHERE region " + region + " AND breedid " + breed + " AND dateofbirth " + lowerAge + " AND dateofbirth " + upperAge + " AND weight " + lowerWeight +
-" AND weight " + upperWeight + " AND gender " + gender + " AND height " + lowerHeight + " AND height " + upperHeight;
+        queryString = "SELECT * FROM Cats WHERE region " +
+region + " AND breedid " + breed + " AND dateofbirth " +
+lowerAge + " AND dateofbirth " + upperAge + " AND weight " +
+lowerWeight + " AND weight " + upperWeight + " AND gender " +
+gender + " AND height " + lowerHeight + " AND height " +
+upperHeight;
 
         return queryString;
 
