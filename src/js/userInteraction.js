@@ -117,11 +117,9 @@ function load() {
 	try {
 		// Convert defaultValues to JSON object
 		defaultValuesJSON = JSON.parse(defaultValues);
-		//alert(defaultValuesJSON.questions[0].age);
 		
 		// Convert requiredFields to JSON object
 		requiredFieldsJSON = JSON.parse(requiredFields);
-		//alert(requiredFieldsJSON.questions[0].age);
 	}catch (e) {
 		alert("Error - interfaceSettings is either not defined, or missing the correct data structure");
 		return;
@@ -138,8 +136,10 @@ function generate(){
 	// Reset Display - Demo purposes only
 	document.getElementById('showResult2').innerHTML = "";
 
-	// Get the slot of the question selected
+	// Shown question on the screen Ex. Favourite cat toy?
 	var shownVal = document.getElementById("question").value;
+	
+	
 	
 	// Catch any input in the question box that is not empty or a valid question and throw an error
 	try {
@@ -149,9 +149,45 @@ function generate(){
 		return;
 	}
 	
+	// Strip all characters from the string -- Strip out "question" part and leave the number Ex. question2 --> 2
+	var slot = questionSelected.replace(/\D/g,'');
+	
 	// Error checking to see if the question field was left blank
 	if (questionSelected == "question0"){
 		alert("Please enter a question from the drop-down menu.");
+		return;
+	}
+	
+	var missingRequiredFieldsStr = "";
+	var missingRequiredField = false;
+	// Error checking to see if a required field was left blank
+	if (requiredFieldsJSON.questions[slot].region == "true" && document.getElementById('region').value == "region0"){
+		missingRequiredFieldsStr += " region";
+		missingRequiredField = true;
+	}
+	if (requiredFieldsJSON.questions[slot].catBreed == "true" && document.getElementById('catBreed').value == "catBreed0"){
+		missingRequiredFieldsStr += " catBreed";
+		missingRequiredField = true;
+	}
+	if (requiredFieldsJSON.questions[slot].age == "true" && document.getElementById('age').value == "age0"){
+		missingRequiredFieldsStr += " age";
+		missingRequiredField = true;
+	}
+	if (requiredFieldsJSON.questions[slot].weight == "true" && document.getElementById('weight').value == "weight0"){
+		missingRequiredFieldsStr += " weight";
+		missingRequiredField = true;
+	}
+	if (requiredFieldsJSON.questions[slot].gender == "true" && document.getElementById('gender').value == "gender0"){
+		missingRequiredFieldsStr += " gender";
+		missingRequiredField = true;
+	}
+	if (requiredFieldsJSON.questions[slot].height == "true" && document.getElementById('height').value == "height0"){
+		missingRequiredFieldsStr += " height";
+		missingRequiredField = true;
+	}
+	
+	if (missingRequiredField){
+		alert("Please fill in required fields: " + missingRequiredFieldsStr);
 		return;
 	}
 	
