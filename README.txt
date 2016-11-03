@@ -8,7 +8,7 @@ Erik Zorn-Wallentin
 Kashaan Ali
 Vincent Yong
 
-Friday, Oct.14 / 2016
+Thursday, Nov.3 / 2016
 ****************************************************
 
 
@@ -28,10 +28,10 @@ Jasmine testing framework - Version 2.4.1
 You do not need to download Jasmine, it is in the library folder on the github with our submission and will automatically work.
 
 Ran all HTML / JavaScript / Jasmine files work in Reynolds Labs (Room 114) with browsers and versions:
-Chrome - Version 43.0.2357.81 (64-bit)
-Firefox - Version 38.0.5
-Safari - Version 10.0 (10602.1.50.0.10)
-Internet Explorer - Not installed in the labs, but should work fine!
+NO - Chrome - Version 43.0.2357.81 (64-bit)
+YES - Firefox - Version 38.0.5
+NO - Safari - Version 10.0 (10602.1.50.0.10)
+NO - Internet Explorer - Not installed in the labs, but should work fine!
 
 You should not need to download anything to run our HTML / JavaScript / Jasmine files. It should also run on any browser and the versions you have on them.
 
@@ -44,6 +44,8 @@ We got Jasmine from website: http://jasmine.github.io/
 Jasmine recommended a certain folder structure to organize the code, and we decided to follow that structure.
 Structure:
 Root
+	documents
+		contains documents
 	lib
 		contains jasmine library
 	testCases
@@ -51,8 +53,6 @@ Root
 	src
 		js
 			contains all your source files in javascript that communicates to html
-		json
-			json input file that is used by interface and javascript files
 	SpecRunner.html
 	README.txt
 	
@@ -62,32 +62,24 @@ Public Analysis Structure
 	
 Structure:
 Root
+	documents
+		CatQuestions				- Excel of cat questions for other teams
 	lib
-		jasmine-2.4.1			- Jasmine library, do not need to do anything with this
-						jasmine contents
-
-	testCases				- Test cases will all be contained here, and they test the
-						source js code
-
+		jasmine-2.4.1				- Jasmine library, do not need to do anything with this jasmine contents
+	testCases						- Test cases will all be contained here, and they test the source js code
 		analysisEngineSpec.js		- Analysis Engine subsystem test cases
 		backendInteractionSpec.js	- Backend Interaction subsystem test cases
 		userInteractionSpec.js		- User Interaction subsystem test cases
 
-	src					- Source files that contain the interface, source files for
-						javascript and json files
-
-		interface.html			- Interface in HTML to simulate from the interface team
-		js				- Javascript source files
-			analysisEngine.js	- Analysis Engine subsystem source file
+	src								- Source files that contain the interface, source files for javascript files
+		interface.html				- Interface in HTML to simulate from the interface team
+		js							- Javascript source files
+			analysisEngine.js		- Analysis Engine subsystem source file
 			backendInteraction.js	- Backend Interaction subsystem source file
-			userInteraction.js	- User Interaction subsystem source file
-
-		json				- JSON source files
-			inputFile.json		- JSON file that contains info from interface to be used by
-						several subsystems and other teams
-
-	SpecRunner.html				- SpecRunner is what runs the test cases, and will be
-						opened in any browser
+			chart.js				- Library for graphs and charts on our result data
+			interfaceSettings.js	- Global data that stores data on the interface settings
+			userInteraction.js		- User Interaction subsystem source file
+	SpecRunner.html					- SpecRunner is what runs the test cases, and will be opened in any browser
 	README.txt										
 
 **********************
@@ -104,6 +96,8 @@ We are the Public Analysis Team for CIS*4250 Software Design V.
 
 The interface should be calling our javascript files and JSON files when they need Public Analysis. You can see where our test cases,
 source files are located based on our Public Analysis Structure as shown above.	
+
+Currently if you want to test our program, use the interface.html to test our current build.
 
 We use Jasmine testing framework to test our javascript code. You run Jasmine testing framework by going to the Root folder,
 and open SpecRunner.html in any browser. SpecRunner once opened will run all the tests on the javascript source files using the spec files as specified
@@ -125,4 +119,4 @@ https://moodle.socs.uoguelph.ca/
 Known Limitations
 *****************
 
-NONE
+Currently does not work on Chrome, Safari, or Internet Explorer with our current code -- only works on Firefox. This will be changed in the future.
