@@ -16,13 +16,14 @@ describe("Generate sql query", function() {
                        '}]' +
                     '}';
   var input = JSON.parse(inputString);
+  var dateOfBirth = new Date();
+  dateOfBirth.setFullYear(dateOfBirth.getFullYear() - 1);
 
   it("Takes a json object with the expected fields", function() {
     expect(jsonToString(input)).toEqual("region1 catBreed1 age1 weight1 gender1 height1");
   });
 
   it("Generates sql query from json object", function() {
-    expect(generateQuery(input)).toEqual('SELECT * FROM Cats WHERE region = "Canada" AND catBreed = "British Shorthair" AND age IS NOT NULL AND age < 1' +
-                      ' AND weight IS NOT NULL AND weight <= 2 AND gender = "Male" AND height >= 1 AND height <= 10');
+    expect(generateQuery(input)).toEqual('SELECT * FROM Cats WHERE region = "Canada" AND breedid = "British Shorthair" AND dateofbirth IS NOT NULL AND dateofbirth > ' + dateOfBirth.toString() + ' AND weight IS NOT NULL AND weight <= 2 AND gender = 1 AND height >= 1 AND height <= 10');
   });
 });
