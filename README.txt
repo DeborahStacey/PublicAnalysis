@@ -31,7 +31,7 @@ Ran all HTML / JavaScript / Jasmine files work in Reynolds Labs (Room 114) with 
 NO - Chrome - Version 43.0.2357.81 (64-bit)
 YES - Firefox - Version 38.0.5
 NO - Safari - Version 10.0 (10602.1.50.0.10)
-NO - Internet Explorer - Not installed in the labs, but should work fine!
+YES - Internet Explorer 11 - Version 11.0.9600.18499
 
 You should not need to download anything to run our HTML / JavaScript / Jasmine files. It should also run on any browser and the versions you have on them.
 
@@ -119,4 +119,4 @@ https://moodle.socs.uoguelph.ca/
 Known Limitations
 *****************
 
-Currently does not work on Chrome, Safari, or Internet Explorer with our current code -- only works on Firefox. This will be changed in the future.
+Currently does not work on Chrome or Safari with our current code -- only works on Firefox and Internet Explorer. This will be changed in the future.
