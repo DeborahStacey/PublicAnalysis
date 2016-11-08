@@ -7,17 +7,6 @@ function helloWorld() {
 	return "Hello world!";
 }
 
-function connectToServer() {
-	$.ajax({
-		type: 'GET',
-		url: 'connection.php',
-		data: 'database=yes',
-		success: function(msg) {
-			return "successful connection!";
-		}
-	});
-}
-
 function jsonToString(input){
 	//return "region1 cat1 breed1 age1 weight1 gender1 height1";
     return input.interface[0].region + " " + input.interface[0].catBreed + " " + input.interface[0].age + " " + input.interface[0].weight + " " + input.interface[0].gender + " " + input.interface[0].height;

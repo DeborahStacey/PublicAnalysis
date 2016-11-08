@@ -27,17 +27,3 @@ describe("Generate sql query", function() {
     expect(generateQuery(input)).toEqual('SELECT * FROM Cats WHERE region = "Canada" AND breedid = "British Shorthair" AND dateofbirth IS NOT NULL AND dateofbirth > ' + dateOfBirth.toString() + ' AND weight IS NOT NULL AND weight <= 2 AND gender = 1 AND height >= 1 AND height <= 10');
   });
 });
-
-describe("Test Connection to databases", function() {
-  var a = 0;
-
-  console.log("test test");
-
-  it("Connection to Database Successful 0", function() {
-    expect(a).toEqual(0);
-  });
-
-  // it("Call to function", function() {
-  //   expect(connectToServer()).toEqual("successful connection!");
-  // });
-});
