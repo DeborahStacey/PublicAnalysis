@@ -56,6 +56,43 @@ Root
 	SpecRunner.html
 	README.txt
 	
+
+**********************
+Versions
+**********************
+
+chartJS - Version 2.3.0
+You do not need to download ChartJS, it is in the library folder on the github with our submission and will automatically work.
+
+All chartJS required files work in Reynolds Labs (Room 114) with browsers and versions:
+YES - Chrome - Version 43.0.2357.81 (64-bit)
+YES - Firefox - Version 38.0.5
+YES - Safari - Version 10.0 (10602.1.50.0.10)
+YES - Internet Explorer 11 - Version 11.0.9600.18499
+
+You should not need to download anything to run our HTML / JavaScript / Jasmine / chartJS files. It should also run on any browser and the versions you have on them.
+
+*****************************
+chartJS Testing Framework
+*****************************
+
+We got chartJS from website: http://chartjs.org/, https://github.com/chartjs/Chart.js/blob/master/LICENSE.md
+
+Below is the chartJS structure that we decided to follow. 
+Structure:
+Root
+	documents
+		contains documents
+	lib
+		contains jasmine library
+	testCases
+		contains your js spec files that will test your js source files
+	src
+		js
+			contains all your source files in javascript that communicates to html and chartJS is one of the required files
+	SpecRunner.html
+	README.txt
+	
 *****************************
 Public Analysis Structure
 *****************************
