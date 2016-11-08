@@ -41,10 +41,10 @@ function generateQuery(input){
                 region = "IS NOT NULL";
                 break;
             case "region1":
-                region = '= "Canada"';
+                region = '= 1';
                 break;
             case "region2":
-                region = '= "United States"';
+                region = '= 2';
                 break;
         }
 
@@ -53,7 +53,7 @@ function generateQuery(input){
                 breed = "IS NOT NULL";
                 break;
             case "catBreed1":
-                breed = '= "British Shorthair"';
+                breed = '= 7';
                 break;
             case "catBreed2":
                 breed = '= 4';
@@ -74,23 +74,23 @@ function generateQuery(input){
             case "age1":
                 upperDate.setFullYear(upperDate.getFullYear() - 1);
                 lowerAge = "IS NOT NULL";
-                upperAge = "> " + upperDate.toString();
+                upperAge = "> '" + upperDate.toISOString().split('T')[0] + "'";
                 break;
             case "age2":
                 lowerDate.setFullYear(lowerDate.getFullYear() - 1);
                 upperDate.setFullYear(upperDate.getFullYear() - 2);
-                lowerAge = "<= " + lowerDate.toString();
-                upperAge = ">= " + upperDate.toString();
+                lowerAge = "<= '" + lowerDate.toISOString().split('T')[0] + "'";
+                upperAge = ">= '" + upperDate.toISOString().split('T')[0] + "'";
                 break;
             case "age3":
                 lowerDate.setFullYear(lowerDate.getFullYear() - 3);
                 upperDate.setFullYear(upperDate.getFullYear() - 6);
-                lowerAge = "<= " + lowerDate.toString();
-                upperAge = ">= " + upperDate.toString();
+                lowerAge = "<= '" + lowerDate.toISOString().split('T')[0] + "'";
+                upperAge = ">= '" + upperDate.toISOString().split('T')[0] + "'";
                 break;
             case "age4":
                 lowerDate.setFullYear(lowerDate.getFullYear() - 6);
-                lowerAge = "< " + lowerDate.toString();
+                lowerAge = "< '" + lowerDate.toISOString().split('T')[0] + "'";
                 upperAge = "IS NOT NULL";
                 break;
         }
@@ -156,12 +156,18 @@ function generateQuery(input){
                 break;
         }
 
-        queryString = "SELECT * FROM Cats WHERE region " +
-region + " AND breedid " + breed + " AND dateofbirth " +
-lowerAge + " AND dateofbirth " + upperAge + " AND weight " +
-lowerWeight + " AND weight " + upperWeight + " AND gender " +
-gender + " AND height " + lowerHeight + " AND height " +
-upperHeight;
+        queryString = "SELECT pet.name, pet.gender, " +
+"pet.microchip, pet.fitcat, pet.dateofbirth, pet.weight, " +
+"pet.height, pet.length, pet.dateofdeath, pet.reasonfordeath " +
+"FROM pet left join account on pet.ownerid = account.userid " +
+"left join address on account.addressid = address.addressid " +
+"left join location on address.locationid = " +
+"location.locationid left join country on location.countryid " +
+"= country.countryid WHERE country.countryid " +
+region + " AND pet.breedid " + breed + " AND pet.dateofbirth " +
+lowerAge + " AND pet.dateofbirth " + upperAge + " AND " +
+"pet.weight " + lowerWeight + " AND pet.weight " + upperWeight +
+" AND pet.gender " + gender + " AND pet.height " + lowerHeight + " AND pet.height " + upperHeight + ";";
 
         return queryString;
 

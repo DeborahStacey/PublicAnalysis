@@ -24,6 +24,7 @@ describe("Generate sql query", function() {
   });
 
   it("Generates sql query from json object", function() {
-    expect(generateQuery(input)).toEqual('SELECT * FROM Cats WHERE region = "Canada" AND breedid = "British Shorthair" AND dateofbirth IS NOT NULL AND dateofbirth > ' + dateOfBirth.toString() + ' AND weight IS NOT NULL AND weight <= 2 AND gender = 1 AND height >= 1 AND height <= 10');
+    expect(generateQuery(input)).toEqual("SELECT pet.name, pet.gender, pet.microchip, pet.fitcat, pet.dateofbirth, pet.weight, pet.height, pet.length, pet.dateofdeath, pet.reasonfordeath FROM pet left join account on pet.ownerid = account.userid left join address on account.addressid = address.addressid left join location on address.locationid = location.locationid left join country on location.countryid = country.countryid WHERE country.countryid = 1 AND pet.breedid = 7 AND pet.dateofbirth IS NOT NULL AND pet.dateofbirth > " +
+"'" + dateOfBirth.toISOString().split('T')[0] + "'" + " AND pet.weight IS NOT NULL AND pet.weight <= 2 AND pet.gender = 1 AND pet.height >= 1 AND pet.height <= 10;");
   });
 });
