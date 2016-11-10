@@ -10,9 +10,8 @@
   <script src="lib/jasmine-2.4.1/jasmine.js"></script>
   <script src="lib/jasmine-2.4.1/jasmine-html.js"></script>
   <script src="lib/jasmine-2.4.1/boot.js"></script>
-  <script type="text/javascript" src="lib/jquery-3.1.1.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   
-
 
   <!-- include source files here... -->
   <script src="src/js/userInteraction.js"></script>
@@ -28,24 +27,4 @@
 
 <body>
 </body>
-<footer>
-    <button id="connect" type="button" onclick="connectToServer()">Test Connection to Server</button>
-    <div id="dbResult"></div>
-</footer>
 </html>
-
-
-
-<script>
-  function connectToServer () {
-    $.ajax({
-        type: 'GET',
-        url: 'src/js/connection.php',
-        dataType:'jsonp',
-        data: 'database=yes',
-        success: function(msg) {
-          ('#dbResult').html(msg);
-        }
-      });
-  }
-</script>
