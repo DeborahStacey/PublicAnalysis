@@ -16,9 +16,9 @@ function generateChart(){
 			// create chart object
 			
 			// Chart Type: 'bar', 'pie', 'doughnut', 'line', 'radar', 'polarArea'
-			var chartType = 'bar';
-			var labels = ["Canidae Pet Foods", "Meow Mix", "IAMS", "Fancy Feast", "Friskies", "Others"];
-			var data = [300, 50, 20, 70, 40, 10];
+			var chartType = 'pie';
+			var labels = ["One", "Two", "Three", "Four-Five", "Six+"];
+			var data = [60, 400, 20, 100, 30]
 			
 			// Data of the chart
 			var data = {
