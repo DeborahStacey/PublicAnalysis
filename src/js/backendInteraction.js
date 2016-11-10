@@ -156,7 +156,8 @@ function generateQuery(input){
                 break;
         }
 
-        queryString = "SELECT country.countryname, " +
+        queryString = "SELECT location.locationname as " +
+"location, country.countryname, " +
 "pet.ownerid, pet.name, breed.name as breed, gender.name " +
 "as gender, pet.microchip, pet.fitcat, pet.dateofbirth, " +
 "pet.weight, pet.height, pet.length, pet.dateofdeath, " +

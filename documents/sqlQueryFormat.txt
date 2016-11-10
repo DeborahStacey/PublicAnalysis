@@ -1,4 +1,4 @@
-SELECT country.countryname, pet.ownerid, pet.name, breed.name as breed, gender.name as gender, pet.microchip, pet.fitcat, pet.dateofbirth, pet.weight, pet.height, pet.length, pet.dateofdeath, pet.reasonfordeath FROM pet
+SELECT location.locationname as location, country.countryname, pet.ownerid, pet.name, breed.name as breed, gender.name as gender, pet.microchip, pet.fitcat, pet.dateofbirth, pet.weight, pet.height, pet.length, pet.dateofdeath, pet.reasonfordeath FROM pet
 left join account on pet.ownerid = account.userid
 left join address on account.addressid = address.addressid 
 left join location on address.locationid = location.locationid
@@ -12,6 +12,6 @@ pet.height > 2 AND pet.height < 10;
 
 will return a table with columns:
 
-countryname | ownerid | name | breed | gender | microchip | fitcat | dateofbirth | weight | height | length | dateofdeath | reasonfordeath
+location | countryname | ownerid | name | breed | gender | microchip | fitcat | dateofbirth | weight | height | length | dateofdeath | reasonfordeath
 
-and return all pets from Canada, of Persian breed, born before 2016-12-10 and after 2014-12-10, weighing between 1 and 20, male, and height between 2 and 10.
+and return all pets from Canada, of Persian breed, born before 2016-12-10 and after 2014-12-10, weighing between 1 and 20, male, and height between 2 and 10. Location is given as province or state.
