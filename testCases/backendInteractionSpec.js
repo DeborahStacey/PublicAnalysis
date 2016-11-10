@@ -24,7 +24,7 @@ describe("Generate sql query", function() {
   });
 
   it("Generates sql query from json object", function() {
-    expect(generateQuery(input)).toEqual("SELECT pet.name, pet.gender, pet.microchip, pet.fitcat, pet.dateofbirth, pet.weight, pet.height, pet.length, pet.dateofdeath, pet.reasonfordeath FROM pet left join account on pet.ownerid = account.userid left join address on account.addressid = address.addressid left join location on address.locationid = location.locationid left join country on location.countryid = country.countryid WHERE country.countryid = 1 AND pet.breedid = 7 AND pet.dateofbirth IS NOT NULL AND pet.dateofbirth > " +
+    expect(generateQuery(input)).toEqual("SELECT country.countryname, pet.ownerid, pet.name, breed.name as breed, gender.name as gender, pet.microchip, pet.fitcat, pet.dateofbirth, pet.weight, pet.height, pet.length, pet.dateofdeath, pet.reasonfordeath FROM pet left join account on pet.ownerid = account.userid left join address on account.addressid = address.addressid left join location on address.locationid = location.locationid left join country on location.countryid = country.countryid left join breed on pet.breed = breed.breedid left join gender on pet.gender = gender.genderid WHERE country.countryid = 1 AND pet.breed = 7 AND pet.dateofbirth IS NOT NULL AND pet.dateofbirth > " +
 "'" + dateOfBirth.toISOString().split('T')[0] + "'" + " AND pet.weight IS NOT NULL AND pet.weight <= 2 AND pet.gender = 1 AND pet.height >= 1 AND pet.height <= 10;");
   });
 });

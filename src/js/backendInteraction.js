@@ -156,15 +156,18 @@ function generateQuery(input){
                 break;
         }
 
-        queryString = "SELECT pet.name, pet.gender, " +
-"pet.microchip, pet.fitcat, pet.dateofbirth, pet.weight, " +
-"pet.height, pet.length, pet.dateofdeath, pet.reasonfordeath " +
-"FROM pet left join account on pet.ownerid = account.userid " +
-"left join address on account.addressid = address.addressid " +
-"left join location on address.locationid = " +
-"location.locationid left join country on location.countryid " +
-"= country.countryid WHERE country.countryid " +
-region + " AND pet.breedid " + breed + " AND pet.dateofbirth " +
+        queryString = "SELECT country.countryname, " +
+"pet.ownerid, pet.name, breed.name as breed, gender.name " +
+"as gender, pet.microchip, pet.fitcat, pet.dateofbirth, " +
+"pet.weight, pet.height, pet.length, pet.dateofdeath, " +
+"pet.reasonfordeath FROM pet left join account on " +
+"pet.ownerid = account.userid left join address on " +
+"account.addressid = address.addressid left join location on " +
+"address.locationid = location.locationid left join country " +
+"on location.countryid = country.countryid left join breed " +
+"on pet.breed = breed.breedid left join gender on pet.gender " +
+"= gender.genderid WHERE country.countryid " + region +
+" AND pet.breed " + breed + " AND pet.dateofbirth " +
 lowerAge + " AND pet.dateofbirth " + upperAge + " AND " +
 "pet.weight " + lowerWeight + " AND pet.weight " + upperWeight +
 " AND pet.gender " + gender + " AND pet.height " + lowerHeight + " AND pet.height " + upperHeight + ";";
