@@ -25,3 +25,7 @@ except:
     exceptionType, exceptionValue, exceptionTraceback = sys.exc_info()
     # Exit the script and print an error telling what happened.
     sys.exit("Database connection failed!\n ->%s" % (exceptionValue))
+
+
+
+#psql --host=welcat-working.cz3evk2oqbiz.us-west-2.rds.amazonaws.com --port=5432 --username=wellcatreaders2 --password --dbname=WelcatWorking
