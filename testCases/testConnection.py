@@ -21,12 +21,13 @@ try:
     cursor = conn.cursor()
     print "Connected!\n"
 
-    cursor.execute("SELECT * FROM COUNTRY;")
+    cursor.execute("SELECT location.locationname as location, country.countryname, pet.ownerid, pet.name, breed.name as breed, gender.name as gender, pet.microchip, pet.fitcat, pet.dateofbirth, pet.weight, pet.height, pet.length, pet.dateofdeath, pet.reasonfordeath FROM pet left join account on pet.ownerid = account.userid left join address on account.addressid = address.addressid left join location on address.locationid = location.locationid left join country on location.countryid = country.countryid left join breed on pet.breed = breed.breedid left join gender on pet.gender = gender.genderid WHERE country.countryid = 1 AND pet.breed = 1 AND pet.dateofbirth < '2016-12-10' AND pet.dateofbirth > '2014-12-10' AND pet.weight > 1 AND pet.weight < 20 AND pet.gender = 1 AND pet.height > 2 AND pet.height < 10;")
 
     rows = cursor.fetchall()
+    print "\nlocation | countryname | ownerid | name | breed | gender | microchip | fitcat | dateofbirth | weight | height | length | dateofdeath | reasonfordeath"
     print "\nRows:"
     for row in rows:
-        print "   ", row[1]
+        print "   ", row
 
 
 except:
