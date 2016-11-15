@@ -12,14 +12,14 @@ conn_string = "host='%s' dbname='%s' user='%s' password='%s' port='%i'"\
                 % (host, dbname, user, password, port)
  
 # print the connection string we will use to connect
-print "Connecting to database\n ->%s" % (conn_string)
+print "Connecting to database...\n"
  
 try:
     # get a connection, if a connect cannot be made an exception will be raised here
     conn = psycopg2.connect(conn_string)
     # conn.cursor will return a cursor object, you can use this cursor to perform queries
     cursor = conn.cursor()
-    print "Connected!\n"
+    print "Connected! running Test query\n"
 
     cursor.execute("SELECT location.locationname as location, country.countryname, pet.ownerid, pet.name, breed.name as breed, gender.name as gender, pet.microchip, pet.fitcat, pet.dateofbirth, pet.weight, pet.height, pet.length, pet.dateofdeath, pet.reasonfordeath FROM pet left join account on pet.ownerid = account.userid left join address on account.addressid = address.addressid left join location on address.locationid = location.locationid left join country on location.countryid = country.countryid left join breed on pet.breed = breed.breedid left join gender on pet.gender = gender.genderid WHERE country.countryid = 1 AND pet.breed = 1 AND pet.dateofbirth < '2016-12-10' AND pet.dateofbirth > '2014-12-10' AND pet.weight > 1 AND pet.weight < 20 AND pet.gender = 1 AND pet.height > 2 AND pet.height < 10;")
 
