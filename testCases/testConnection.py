@@ -20,6 +20,15 @@ try:
     # conn.cursor will return a cursor object, you can use this cursor to perform queries
     cursor = conn.cursor()
     print "Connected!\n"
+
+    cursor.execute("SELECT * FROM COUNTRY;")
+
+    rows = cursor.fetchall()
+    print "\nRows:"
+    for row in rows:
+        print "   ", row[1]
+
+
 except:
     # Get the most recent exception
     exceptionType, exceptionValue, exceptionTraceback = sys.exc_info()
