@@ -5,8 +5,6 @@ import json
 
 jsonInfo = json.load(sys.stdin).iteritems()
 
-print jsonInfo[]
-
 for row in jsonInfo:
 	print row[0]
 
