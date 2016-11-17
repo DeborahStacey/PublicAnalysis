@@ -8,4 +8,4 @@ jsonInfo = json.load(sys.stdin)
 for row in jsonInfo.iteritems():
         print row
 
-print jsonInfo
+#print jsonInfo
