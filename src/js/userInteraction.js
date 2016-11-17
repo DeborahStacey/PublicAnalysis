@@ -7,7 +7,7 @@ var requiredFieldsJSON = null;
 	Return: NONE
 -------*/
 function init (){
-	reset();
+	//reset();
 	
 	// Load JSON files
 	load();
@@ -19,28 +19,29 @@ function init (){
 	Parameters: NONE
 	Return: NONE
 -------*/
-function reset () {
-	document.getElementById('question').value = "";
-	document.getElementById('region').value = "region0";
-	document.getElementById('catBreed').value = "catBreed0";
-	document.getElementById('age').value = "age0";
-	document.getElementById('weight').value = "weight0";
-	document.getElementById('gender').value = "gender0";
-	document.getElementById('height').value = "height0";
+function reset (question, region, catBreed, age, weight, gender, height, regionDisplay, catBreedDisplay, ageDisplay, weightDisplay, genderDisplay, heightDisplay) {
+	document.getElementById(question).value = "";
+	document.getElementById(region).value = "region0";
+	document.getElementById(catBreed).value = "catBreed0";
+	document.getElementById(age).value = "age0";
+	document.getElementById(weight).value = "weight0";
+	document.getElementById(gender).value = "gender0";
+	document.getElementById(height).value = "height0";
 	
+	document.getElementById(regionDisplay).innerHTML = "";
+	document.getElementById(catBreedDisplay).innerHTML = "";
+	document.getElementById(ageDisplay).innerHTML = "";
+	document.getElementById(weightDisplay).innerHTML = "";
+	document.getElementById(genderDisplay).innerHTML = "";
+	document.getElementById(heightDisplay).innerHTML = "";
+	
+	// Demo purposes to hide the JSON Object we are passing around
 	document.getElementById('showResult2').innerHTML = "";
-	
-	document.getElementById('regionDisplay').innerHTML = "";
-	document.getElementById('catBreedDisplay').innerHTML = "";
-	document.getElementById('ageDisplay').innerHTML = "";
-	document.getElementById('weightDisplay').innerHTML = "";
-	document.getElementById('genderDisplay').innerHTML = "";
-	document.getElementById('heightDisplay').innerHTML = "";
 }
 
-function submit(){
+function submit(question, region, catBreed, age, weight, gender, height, regionDisplay, catBreedDisplay, ageDisplay, weightDisplay, genderDisplay, heightDisplay){
 	// Get the slot of the question selected
-	var shownVal = document.getElementById("question").value;
+	var shownVal = document.getElementById(question).value;
 	
 	// Catch any input in the question box that is not empty or a valid question and throw an error
 	var questionSelected;
@@ -62,12 +63,12 @@ function submit(){
 
 	try {
 		// Set the default values
-		document.getElementById('region').value = defaultValuesJSON.questions[slot].region;
-		document.getElementById('catBreed').value = defaultValuesJSON.questions[slot].catBreed;
-		document.getElementById('age').value = defaultValuesJSON.questions[slot].age;
-		document.getElementById('weight').value = defaultValuesJSON.questions[slot].weight;
-		document.getElementById('gender').value = defaultValuesJSON.questions[slot].gender;
-		document.getElementById('height').value = defaultValuesJSON.questions[slot].height;
+		document.getElementById(region).value = defaultValuesJSON.questions[slot].region;
+		document.getElementById(catBreed).value = defaultValuesJSON.questions[slot].catBreed;
+		document.getElementById(age).value = defaultValuesJSON.questions[slot].age;
+		document.getElementById(weight).value = defaultValuesJSON.questions[slot].weight;
+		document.getElementById(gender).value = defaultValuesJSON.questions[slot].gender;
+		document.getElementById(height).value = defaultValuesJSON.questions[slot].height;
 	}catch (e) {
 		alert("Error - That question is not setup in interfaceSettings for defaultValues -- question" + slot);
 		return;
@@ -100,12 +101,12 @@ function submit(){
 			heightDisplayAsterisk = "*";
 		}
 		// Set the required fields
-		document.getElementById('regionDisplay').innerHTML = regionDisplayAsterisk;
-		document.getElementById('catBreedDisplay').innerHTML = catBreedDisplayAsterisk;
-		document.getElementById('ageDisplay').innerHTML = ageDisplayAsterisk;
-		document.getElementById('weightDisplay').innerHTML = weightDisplayAsterisk;
-		document.getElementById('genderDisplay').innerHTML = genderDisplayAsterisk;
-		document.getElementById('heightDisplay').innerHTML = heightDisplayAsterisk;
+		document.getElementById(regionDisplay).innerHTML = regionDisplayAsterisk;
+		document.getElementById(catBreedDisplay).innerHTML = catBreedDisplayAsterisk;
+		document.getElementById(ageDisplay).innerHTML = ageDisplayAsterisk;
+		document.getElementById(weightDisplay).innerHTML = weightDisplayAsterisk;
+		document.getElementById(genderDisplay).innerHTML = genderDisplayAsterisk;
+		document.getElementById(heightDisplay).innerHTML = heightDisplayAsterisk;
 	}catch (e) {
 		alert("Error - That question is not setup in interfaceSettings for requiredFields -- question" + slot);
 		return;
@@ -132,12 +133,12 @@ function load() {
 	Parameters: NONE
 	Return: "Hello world!"
 -------*/
-function generate(){
+function generate(question, region, catBreed, age, weight, gender, height){
 	// Reset Display - Demo purposes only
 	document.getElementById('showResult2').innerHTML = "";
 
 	// Shown question on the screen Ex. Favourite cat toy?
-	var shownVal = document.getElementById("question").value;
+	var shownVal = document.getElementById(question).value;
 	
 	
 	
@@ -161,27 +162,27 @@ function generate(){
 	var missingRequiredFieldsStr = "";
 	var missingRequiredField = false;
 	// Error checking to see if a required field was left blank
-	if (requiredFieldsJSON.questions[slot].region == "true" && document.getElementById('region').value == "region0"){
+	if (requiredFieldsJSON.questions[slot].region == "true" && document.getElementById(region).value == "region0"){
 		missingRequiredFieldsStr += " region";
 		missingRequiredField = true;
 	}
-	if (requiredFieldsJSON.questions[slot].catBreed == "true" && document.getElementById('catBreed').value == "catBreed0"){
+	if (requiredFieldsJSON.questions[slot].catBreed == "true" && document.getElementById(catBreed).value == "catBreed0"){
 		missingRequiredFieldsStr += " catBreed";
 		missingRequiredField = true;
 	}
-	if (requiredFieldsJSON.questions[slot].age == "true" && document.getElementById('age').value == "age0"){
+	if (requiredFieldsJSON.questions[slot].age == "true" && document.getElementById(age).value == "age0"){
 		missingRequiredFieldsStr += " age";
 		missingRequiredField = true;
 	}
-	if (requiredFieldsJSON.questions[slot].weight == "true" && document.getElementById('weight').value == "weight0"){
+	if (requiredFieldsJSON.questions[slot].weight == "true" && document.getElementById(weight).value == "weight0"){
 		missingRequiredFieldsStr += " weight";
 		missingRequiredField = true;
 	}
-	if (requiredFieldsJSON.questions[slot].gender == "true" && document.getElementById('gender').value == "gender0"){
+	if (requiredFieldsJSON.questions[slot].gender == "true" && document.getElementById(gender).value == "gender0"){
 		missingRequiredFieldsStr += " gender";
 		missingRequiredField = true;
 	}
-	if (requiredFieldsJSON.questions[slot].height == "true" && document.getElementById('height').value == "height0"){
+	if (requiredFieldsJSON.questions[slot].height == "true" && document.getElementById(height).value == "height0"){
 		missingRequiredFieldsStr += " height";
 		missingRequiredField = true;
 	}
@@ -193,7 +194,7 @@ function generate(){
 	
 	// Setup JSON object based on the input from the user on the interface
 	var input =	'{ "interface" : [' +
-				'{ "question":"' + questionSelected + '" , "region":"'+ document.getElementById('region').value +'" , "catBreed":"'+ document.getElementById('catBreed').value +'" , "age":"'+ document.getElementById('age').value +'" , "weight":"'+ document.getElementById('weight').value +'" , "gender":"'+ document.getElementById('gender').value +'" , "height":"'+ document.getElementById('height').value +'" } ]}';
+				'{ "question":"' + questionSelected + '" , "region":"'+ document.getElementById(region).value +'" , "catBreed":"'+ document.getElementById(catBreed).value +'" , "age":"'+ document.getElementById(age).value +'" , "weight":"'+ document.getElementById(weight).value +'" , "gender":"'+ document.getElementById(gender).value +'" , "height":"'+ document.getElementById(height).value +'" } ]}';
 			
 	// Convert from String to JSON Object
 	var jsonObj = JSON.parse(input);
@@ -201,64 +202,3 @@ function generate(){
 	// Display JSON object on the screen - Demo purposes only
 	document.getElementById('showResult2').innerHTML = jsonObj.interface[0].question + " " + jsonObj.interface[0].region + " " + jsonObj.interface[0].catBreed + " " + jsonObj.interface[0].age + " " + jsonObj.interface[0].weight + " " + jsonObj.interface[0].gender + " " + jsonObj.interface[0].height;
 }
-
-
-/*-------
-	Public Analysis read and save. 
--------*/
-
-var save_json = function()
-	{
-		var values = { 
-			"region" : $("#region").val(),
-			"cat_breed" : $("#cat_breed").val(),
-			"weight" : $("#weight").val(),
-			"age" : $("#age").val(),
-			"gender": $("#gender").val(),
-			"height": $("#height").val()
-		};
-		
-
-		$.each(json_value, function(index, element) {
-			$.each(element[0], function(index1, element1) {
-				//console.log(element1);
-				var key = index1.replace(" ", "_");
-				element[0][index1.replace("_", "")] = values[key];
-			});
-		});
-
-		var str =  "Will be written<br/><ul>";
-		$.each(json_value, function(index, element) {
-			$('.save_json').empty();
-			$.each(element[0], function(index1, element1) {
-				str += "<li>" + element1 + "</li>";
-			});
-			str+= "</ul>";
-	        $('.save_json').append(str);
-		});
-
-		var content = JSON.stringify(json_value);
-	}
-
-	var read_json = function(filename)
-	{
-		var url = 'json/' + filename ;
-		$.ajax({ 
-	        type: 'GET', 
-	        url: url, 
-	        data: { get_param: 'value' }, 
-	        success: function (data) { 
-	            json_value = data;
-	            $('.read_json').empty();
-	            var str =  "Read Successful<br/><ul>";
-	            $.each(data, function(index, element) {
-	            	$.each(element[0], function(index1, element1) {
-	            		str += "<li>" + element1 + "</li>";
-	            		$('#' + index1.replace(" ", "_")).val(element1);
-	            	});
-	            	str+= "</ul>";
-	            	$('.read_json').append(str);
-		        });
-	        }
-	    });
-	}
