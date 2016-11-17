@@ -159,7 +159,7 @@
   						<option data-value="question5" value="How many cats have a mutation?">
   					</datalist> 
 				</form>
-				<input type="submit" value="Submit" onclick="submit ()">
+				<input type="submit" value="Submit" onclick="submit ('question', 'region', 'catBreed', 'age', 'weight', 'gender', 'height', 'regionDisplay', 'catBreedDisplay', 'ageDisplay', 'weightDisplay', 'genderDisplay', 'heightDisplay')">
 				</center>
 				<br>
 				<br>
@@ -170,8 +170,8 @@
 		<!-- THIS SECTION IS FOR ALL THE TEXT DISPLAYED ON THE SCREEN -->
 		<center>
 			<br>
-			<td><input id="resetBtn" class="buttonSetup" type="button" value="Reset" onclick="reset ()"/></td><br>
-			<td><input id="generateBtn" class="buttonSetup" type="button" value="Generate" onclick="generateChart ()"/></td><br><br>
+			<td><input id="resetBtn" class="buttonSetup" type="button" value="Reset" onclick="reset ('question', 'region', 'catBreed', 'age', 'weight', 'gender', 'height', 'regionDisplay', 'catBreedDisplay', 'ageDisplay', 'weightDisplay', 'genderDisplay', 'heightDisplay')"/></td><br>
+			<td><input id="generateBtn" class="buttonSetup" type="button" value="Generate" onclick="generate ('question', 'region', 'catBreed', 'age', 'weight', 'gender', 'height')"/></td><br><br>
 			<font size="5" face="verdana" color="red"><b><span id="showResult1"></span> </b></font><br>
 			<font size="5" face="verdana" color="red"><b><span id="showResult2"></span> </b></font><br>
 		</center>
